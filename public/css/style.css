@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Black Han Sans', sans-serif;
+
+  transition:all .5s ease-in-out;
+  -o-transition:all .5s ease-in-out;
+  -moz-transition:all .5s ease-in-out;
+  -webkit-transition:all .5s ease-in-out;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+}
+.header .logo {
+  height: 40%;
+  margin: auto 100px;
+}
+.header .menu-toggle {
+  position: relative;
+  margin: auto 100px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-clip: content-box;
+  width: 20px;
+  height: 10px;
+  background-color: black;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.header .menu-toggle:before,
+.header .menu-toggle:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 15%;
+  width: 70%;
+  background: black;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.header .menu-toggle:before {
+  top: -6px;
+}
+.header .menu-toggle:after {
+  bottom: -6px;
+}
+.header .menu-toggle.active {
+    background: transparent;
+    background-clip: content-box;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+.header .menu-toggle.active:before {
+  -webkit-transform: rotate(495deg);
+  transform: rotate(495deg);
+  top: 0;
+  width: 100%;
+}
+.header .menu-toggle.active:after {
+  bottom: 0;
+  -webkit-transform: rotate(585deg);
+  transform: rotate(585deg);
+  width: 100%;
+}
+
+.main {
+  width: 40%;
+  margin: 0 auto 2em auto;
+  padding-top: 80px;
+}
+.main .title {
+  width: 100%;
+  font-weight: normal;
+  text-align: center;
+  cursor: default;
+}
+.main .title span {
+  color: orange;
+}
+.main .description {
+  width: 100%;
+  margin: 2em auto;
+  color: gray;
+  text-align: center;
+  letter-spacing: 4px;
+  cursor: default;
+}
+.main .preview-content {
+  width: 100%;
+  margin-top: 20px;
+}
+.main .preview-content .preview-photo {
+  width: 100%;
+}
+.main .preview-content .blog-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20%;
+  width: 180px;
+  height: 60px;
+  color: white;
+  font-family: 'Black Han Sans', sans-serif;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(
+    to right, #E1769F, #B07FC7 
+    );
+}
+
+.main-menu {
+  font-size: 2em;
+  opacity: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  top: 80px;
+  position: fixed;
+  background: linear-gradient(
+    to right top, #F87F80, #FFA93B
+  );
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  transform: translate3d(0,100%,0);
+}
+
+.main-menu.expanded {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.main-menu .category {
+  opacity: 0;
+  width: 100%;
+  height: calc(100%/5);
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  color: white;
+  cursor: pointer;
+  transform: translate3d(-100px,0,0);
+}
+
+.main-menu.expanded .category {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  transition: transform 0.4s ease-out 0.4s, opacity 0.4s ease-out 0.4s;
+}
+.main-menu.expanded .category.first {
+  transition: transform 0.4s ease-out 0.5s, opacity 0.4s ease-out 0.5s; 
+}
+.main-menu.expanded .category.second {
+  transition: transform 0.4s ease-out 0.6s, opacity 0.4s ease-out 0.6s; 
+}
+.main-menu.expanded .category.third {
+  transition: transform 0.4s ease-out 0.7s, opacity 0.4s ease-out 0.7s; 
+}
+.main-menu.expanded .category.fourth {
+  transition: transform 0.4s ease-out 0.8s, opacity 0.4s ease-out 0.8s; 
+}
+.main-menu.expanded .category.fifth {
+  transition: transform 0.4s ease-out 0.9s, opacity 0.4s ease-out 0.9s; 
+}
+
+@media only screen and (max-width:768px) {
+  .header {
+    width: 80%;
+    margin: 0 10%; 
+  }
+  .header .logo {
+    margin: auto 0;
+  }
+  .header .menu-toggle {
+    margin: auto 0;
+  }
+  .main {
+    width: 80%;
+    padding-top: 120px;
+  }
+  .main .title {
+    font-size: 1.6em;
+    width: 50%;
+    text-align: start;
+  }
+  .main .description {
+    font-size: 0.8em;
+    width: 50%;
+    text-align: start;
+    margin: 3em 0;
+    letter-spacing: 3px;
+  }
+  .main .preview-content {
+    margin-top: 100px;
+    position: relative;
+  }
+  .main .preview-content .blog-button {
+    position: absolute;
+    top: -30px;
+    left: 30px;
+  }
+}
