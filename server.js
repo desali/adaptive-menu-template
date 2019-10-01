@@ -18,4 +18,6 @@ app.get('/', (request, response) => {
   response.sendFile('index.html');
 });
 
-app.listen(4000);
+app.listen(process.env.PORT || 4000, function(){
+    console.log('Your node js server is running');
+});
